@@ -1,0 +1,28 @@
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "white" type = "ball-spin" [fullScreen] = "true">
+    <p style="color: white" > Loading... </p>
+</ngx-spinner>
+
+<p-toast></p-toast>
+
+<div class="navbar">
+    <p-toolbar styleClass="glass-toolbar" >
+        <ng-template pTemplate="start">
+            <img src="/assets/images/final.jpg" alt="logo">
+        </ng-template>
+        <ng-template pTemplate="center">
+            <div class="flex flex-wrap align-items-center gap-3">
+                <h1>Bank</h1>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="end">
+            <div class="flex align-items-center gap-2 user-access">
+                    <i class="pi pi-user"></i>
+                    <span>{{userName}}</span>
+                    <span id="log" (click)="logout()">Logout</span>
+            </div>
+        </ng-template>
+    </p-toolbar>
+</div>
+
+
+<app-home-table [pipeLineData]="pipeLineData" [userAccess]="userAccess"></app-home-table>

@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+  }
+  
+  .error-container {
+    text-align: center;
+  
+    h1 {
+      font-size: 6em;
+      margin-bottom: 20px;
+    }
+  
+    p {
+      font-size: 1.5em;
+      margin-bottom: 20px;
+    }
+  
+    a {
+      text-decoration: none;
+      font-size: 1.2em;
+      transition: color 0.3s ease;
+      color: gray;
+  
+      &:hover {
+        color: #d2dde4;
+      }
+    }
+  }
+  

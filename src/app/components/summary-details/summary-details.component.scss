@@ -1,0 +1,112 @@
+
+
+.backHome{
+  display: flex;
+  justify-content: space-between;
+  button{
+    color: white
+  }
+  .con{
+    margin-right:auto;
+    display: flex;
+    gap: 20px;
+  }
+  
+}
+
+::ng-deep .p-button{
+  cursor: pointer;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(200px);   
+  border-color: gray;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+
+::ng-deep .p-card{
+  width: 80%;
+  margin: 5px auto;
+  background-color: white;
+}
+
+.card {
+  .details {
+    padding: 20px;
+    p-card {
+      .row {
+        color: black;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+
+        .col-3 {
+          width: 25%; 
+          padding: 5px;
+          box-sizing: border-box; 
+
+          .item {
+            border: 1px solid #9b9898;
+            border-radius: 8px;
+            padding: 10px;
+            background-color: #f8f7f7;
+
+            span {
+              display: block;
+              margin-bottom: 10px;
+              h3 {
+                margin-bottom: 5px;
+                font-weight: bold;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.attachments{
+  p-card{
+    text-align: center;
+    .pdf-link {
+      width: calc(33.33% - 10px);
+      display: block;
+      padding: 10px;
+      margin-bottom: 10px;
+      text-decoration: none;
+      color: #0366d6; 
+    }
+    
+    .pdf-link:hover {
+      text-decoration: underline;
+    }
+    
+    .pdf-link i.pi {
+      margin-right: 5px;
+    }
+    
+    .card-content {
+      color: black;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap; 
+    }
+  }
+}
+
+
+textarea{
+  position: relative;
+}
+
+#reason{
+  position: relative;
+  left: 10px;
+  background-color: gray;
+  margin:50px auto;
+  
+}
+
+  

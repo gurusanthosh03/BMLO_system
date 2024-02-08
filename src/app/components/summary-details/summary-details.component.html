@@ -1,0 +1,72 @@
+<div class="backHome">
+    <p-toast></p-toast>
+    <button type="button" (click)="navigationToHome('')" pButton pRipple class="p-button-text p-button-rounded p-button-plain" pTooltip="back to Home" [icon]=" 'pi pi-arrow-left'"></button>
+    <div class="con" *ngIf="userAccess=='Bank Manager'">
+        <button pButton (click)="statusApproved()" class="pi pi-check-circle" label="Approve"></button>
+        <button pButton (click)="pe.toggle($event)" label="Pending" class="pi pi-refresh"></button>
+        <button pButton (click)="op.toggle($event)" label="Deny" class="pi pi-times-circle"></button>
+    </div>
+</div>
+
+<p-overlayPanel #pe class="custom-panel">
+  <textarea rows="5" cols="30" pInputTextarea [(ngModel)]="reasonValue" placeholder="Write Your Reason"></textarea>
+  <button id="reason" type="button" (click)="statusPending()" pRipple pButton label="submit"></button>
+</p-overlayPanel>
+
+<p-overlayPanel #op class="custom-panel">
+        <textarea rows="5" cols="30" pInputTextarea [(ngModel)]="reasonValue" placeholder="Write Your Reason"></textarea>
+        <button id="reason" type="button" (click)="statusDenied()" pRipple pButton label="Submit"></button>
+</p-overlayPanel>
+
+
+
+<div class="card">
+    <div class="details">
+      <p-card>
+        <div class="row">
+          <ng-container *ngFor="let key of keys; let i=index">
+            <div class="col-3">
+              <div class="item">
+                <span><h3>{{ headerKeys[i] }}:</h3> {{ getAndShowFullDetails[key] }}</span>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </p-card>
+    </div>
+</div>
+  
+
+<div class="attachments">
+    <p-card header="Loan Documents">
+      <div class="card-content">
+        <a (click)="exportPdf(id)" class="pdf-link" pTooltip="Download Pan Card" tooltipPosition="bottom">
+          <i class="pi pi-file-pdf"></i> Pan Card
+        </a>
+        <a (click)="exportPdf(id)" class="pdf-link" pTooltip="Download TC" tooltipPosition="bottom">
+          <i class="pi pi-file-pdf"></i> Transfer Certificate
+        </a>
+        <a (click)="exportPdf(id)" class="pdf-link" pTooltip="Download Assets" tooltipPosition="bottom">
+          <i class="pi pi-file-pdf"></i> Assets Details
+        </a>
+      </div>
+    </p-card>
+  </div>
+
+
+
+
+
+
+<!-- <div class="attachments">
+    <p-card header="Loan Documents">
+        <div class="card-content w-full md:w-25 flex align-items-center justify-content-space-evenly py-5">
+            <div class="card-content">
+                <a icon="pi pi-paperclip" (click)="exportPdf(id)" class="custom-link"  pTooltip="User Files" tooltipPosition="bottom">Pan Card</a>
+                <a icon="pi pi-paperclip" (click)="exportPdf(id)" class="custom-link"  pTooltip="User Files" tooltipPosition="bottom">Attachments</a>
+                <a icon="pi pi-paperclip" (click)="exportPdf(id)" class="custom-link"  pTooltip="User Files" tooltipPosition="bottom">Attachments</a>
+            </div>
+            <button type="button" pButton pRipple icon="pi pi-paperclip" (click)="exportPdf(id)" class="p-button-warning mr-2" pTooltip="User Files" tooltipPosition="bottom"> Attachments</button>
+        </div>
+    </p-card>
+</div> -->

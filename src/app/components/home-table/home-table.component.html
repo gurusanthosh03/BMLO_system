@@ -1,0 +1,52 @@
+<div class="card" >
+    <p-table [columns]="headers" [value]="pipeLineData"  dataKey="id" [tableStyle]="{'min-width':'50rem'}">
+        <ng-template pTemplate="header" let-headerData>
+            <tr>
+                <th *ngFor="let head of headerData;let i=index"  pSortableColumn="{{dataKey[i]}}">
+                    {{head}}<p-sortIcon [field]="dataKey[i]" *ngIf="head"></p-sortIcon>
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-pipeLineData let-expanded="expanded">
+                <tr >
+                    <td *ngFor="let key of dataKey"  (click)="showFullDetails(pipeLineData)">
+                        <span *ngIf="key == 'loan_status'" [ngStyle]="{'color': getStatusColorClass(pipeLineData['loan_status'])}"> {{pipeLineData[key]}}</span>
+                        <span *ngIf="!(key == 'loan_status')">  {{pipeLineData[key]}}</span>
+                    </td>
+                    <td>
+                        <button type="button" pButton pRipple [pRowToggler]="pipeLineData" dataKey="id" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-left'"></button>
+                    </td>
+                </tr>
+        </ng-template> 
+        <ng-template pTemplate="rowexpansion" let-expandedHomeData>
+            <tr>
+                <td colspan="7">
+                    <div class="p-3">
+                        <p-table [value]="[expandedHomeData]">
+                            <ng-template pTemplate="header">
+                                <tr>
+                                    <th *ngFor="let head of hide_keys">
+                                        {{ head }}
+                                    </th>
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="body" let-expandedHomeData>
+                                <tr *ngIf="expandedHomeData">
+                                    <td *ngFor="let key of hide_keys" (click)="showFullDetails(expandedHomeData)">
+                                        {{ expandedHomeData[key] }}
+                                    </td>
+                                    
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="emptymessage">
+                                <tr>
+                                    <td colspan="7">No Details..</td>
+                                </tr>
+                            </ng-template>
+                        </p-table>
+                    </div>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

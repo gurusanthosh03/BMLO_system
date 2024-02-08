@@ -1,0 +1,16 @@
+{
+  "/api/*": {
+    "target": "https://65795408f08799dc8046aadf.mockapi.io",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api/bank_home_info": "/info/bank_home_info",
+      "^/api/bank_info": "/info/bank_info"
+    }
+  },
+  "/validate/*": {
+    "target": "https://659542fb04335332df82543c.mockapi.io",
+    "secure": true,
+    "changeOrigin": true
+  }
+}
